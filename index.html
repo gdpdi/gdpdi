@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Global Durga Puja Digital Index — World ranking of 141 Durga Puja association websites across 41 countries and 6 continents.">
+<meta property="og:title" content="GDPDI — Global Durga Puja Digital Index Feb 2026 Edition 1">
+<meta property="og:url" content="https://gdpdi.github.io/gdpdi/">
+<link rel="canonical" href="https://gdpdi.github.io/gdpdi/">
+<title>GDPDI · Global Durga Puja Digital Index · Feb 2026</title>
+<style>
+:root{
+  --navy:#162648;--gold:#A8820A;--teal:#00586C;--green:#006937;
+  --amber:#AF6900;--red:#9B1C1C;--light:#F7F8FC;--border:#DDE2EF;
+  --text:#2A2D38;--sub:#636880;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:"Segoe UI",system-ui,sans-serif;background:var(--light);color:var(--text);overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(135deg,#F0F4FB 0%,#E8EEF8 33%,#F4F0FB 66%,#EBF5F7 100%);
+  background-size:400% 400%;animation:bg 22s ease infinite;}
+@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+header{background:linear-gradient(135deg,#0D1F3C,#162648,#1A2F55);color:#fff;
+  padding:22px 18px 18px;text-align:center;position:relative;}
+header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#8A6800,#D4A800,#C49000,#D4A800,#8A6800);}
+.hby{font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:7px;}
+header h1{font-size:clamp(20px,4vw,30px);font-weight:800;letter-spacing:-.3px;margin-bottom:6px;}
+header h1 span{color:#D4A800;}
+.hsub{font-size:clamp(10px,1.8vw,12px);color:rgba(255,255,255,.6);margin-bottom:4px;font-style:italic;}
+.hcredit{font-size:9px;color:rgba(255,255,255,.35);margin-top:4px;}
+.hstats{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:12px;}
+.hstat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;
+  padding:4px 13px;font-size:10.5px;font-weight:700;color:rgba(255,255,255,.8);}
+.hstat b{color:#D4A800;}
+.sitenav{background:#0D1F3C;border-bottom:3px solid #A8820A;display:flex;
+  overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 10px rgba(0,0,0,.35);}
+.sitenav::-webkit-scrollbar{display:none;}
+.nlink{color:rgba(255,255,255,.55);font-size:10.5px;font-weight:700;padding:10px 16px;
+  white-space:nowrap;text-decoration:none;border-right:1px solid rgba(255,255,255,.07);transition:all .2s;}
+.nlink:hover,.nlink.active{color:#D4A800;background:rgba(255,255,255,.06);}
+.ctrl{padding:10px 12px 9px;background:#fff;border-bottom:2px solid var(--border);
+  position:sticky;top:37px;z-index:50;box-shadow:0 2px 14px rgba(22,38,72,.08);}
+.srow{display:flex;gap:7px;margin-bottom:7px;flex-wrap:wrap;}
+.sbox{flex:1;min-width:160px;border:1.5px solid var(--border);border-radius:8px;
+  padding:8px 12px;font-size:13px;background:var(--light);color:var(--text);
+  outline:none;font-family:inherit;transition:border-color .2s;}
+.sbox:focus{border-color:var(--teal);background:#fff;}
+.frow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
+.fsel{border:1.5px solid var(--border);border-radius:7px;padding:5px 8px;
+  font-size:11px;background:var(--light);color:var(--text);cursor:pointer;
+  outline:none;font-family:inherit;transition:border-color .2s;}
+.fsel:focus{border-color:var(--teal);}
+.clrbtn{border:none;background:none;color:var(--amber);font-size:11px;cursor:pointer;
+  font-weight:700;text-decoration:underline;padding:0 4px;}
+.rcount{font-size:10.5px;color:var(--sub);align-self:center;margin-left:auto;}
+#sec-rankings{padding:10px 9px;}
+.grid{display:grid;gap:9px;}
+@media(min-width:560px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:860px){.grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:1180px){.grid{grid-template-columns:repeat(4,1fr);}}
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;
+  padding:12px 12px 10px;display:flex;flex-direction:column;gap:6px;
+  box-shadow:0 1px 5px rgba(22,38,72,.04);transition:box-shadow .2s,transform .15s;
+  position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);}
+.card.r1::before{background:linear-gradient(90deg,#B8860B,#FFD740,#B8860B);}
+.card.r3::before{background:linear-gradient(90deg,#00586C,#00A0B8);}
+.card.r10::before{background:linear-gradient(90deg,#006937,#00A855);}
+.card:hover{box-shadow:0 5px 20px rgba(22,38,72,.11);transform:translateY(-2px);}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;}
+.rbadge{background:var(--navy);color:#fff;font-size:10px;font-weight:700;
+  padding:3px 9px;border-radius:20px;white-space:nowrap;}
+.rbadge.gold{background:linear-gradient(135deg,#B8860B,#FFD740);color:#1a1000;}
+.scircle{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;border:2.5px solid;}
+.scircle.gr{border-color:var(--green);color:var(--green);background:#EDFAF3;}
+.scircle.am{border-color:var(--amber);color:var(--amber);background:#FFF8EE;}
+.scircle.re{border-color:var(--red);color:var(--red);background:#FEF2F2;}
+.cname{font-size:12px;font-weight:700;color:var(--navy);line-height:1.3;}
+.cloc{font-size:9.5px;color:var(--sub);display:flex;align-items:center;gap:3px;flex-wrap:wrap;}
+.ctag{background:var(--light);border:1px solid var(--border);border-radius:4px;padding:1px 5px;font-size:9px;font-weight:600;}
+.contag{background:#EEF4FF;border:1px solid #BDD0FF;border-radius:4px;padding:1px 5px;font-size:9px;font-weight:600;color:var(--navy);}
+.chips{display:flex;flex-wrap:wrap;gap:3px;}
+.chip{font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;border:1px solid;}
+.chip-g{background:#EEF4FF;border-color:#BDD0FF;color:var(--navy);}
+.chip-c{background:#EEF9FA;border-color:#9FDCE4;color:var(--teal);}
+.chip-n{background:#F4F7EE;border-color:#B8D498;color:var(--green);}
+.chip-s{background:#FFF8EE;border-color:#E8C888;color:var(--amber);}
+.chip-ai{background:#FAF0FF;border-color:#DDB8FF;color:#6A0DAD;}
+.cacts{display:flex;gap:5px;margin-top:2px;}
+.bvisit{flex:1;padding:7px 8px;border-radius:7px;background:var(--navy);color:#fff;
+  font-size:10px;font-weight:700;text-align:center;text-decoration:none;
+  border:none;cursor:pointer;transition:background .2s;}
+.bvisit:hover{background:var(--teal);}
+.bshare{padding:7px 10px;border-radius:7px;background:#25D366;color:#fff;
+  font-size:10px;font-weight:700;border:none;cursor:pointer;}
+.bembed{padding:7px 10px;border-radius:7px;background:var(--light);color:var(--navy);
+  font-size:10px;font-weight:700;border:1.5px solid var(--border);cursor:pointer;}
+.bembed:hover{border-color:var(--teal);}
+.nores{grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--sub);font-size:13px;}
+.loading{grid-column:1/-1;text-align:center;padding:50px;color:var(--sub);}
+.dlbar{background:#fff;border-top:2px solid var(--border);border-bottom:2px solid var(--border);
+  padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;}
+.dllabel{font-size:11.5px;font-weight:700;color:var(--navy);}
+.dlbtn{display:flex;align-items:center;gap:9px;border:1.5px solid var(--border);
+  border-radius:10px;padding:10px 16px;text-decoration:none;color:var(--text);
+  background:var(--light);transition:all .2s;}
+.dlbtn:hover{border-color:var(--teal);background:#EEF9FA;}
+.dlbtn-title{font-size:12px;font-weight:700;color:var(--navy);}
+.dlbtn-sub{font-size:10px;color:var(--sub);}
+.section{padding:24px 14px;border-top:2px solid var(--border);background:linear-gradient(135deg,#F2F5FB,#EEF3FB);}
+.section-inner{max-width:680px;margin:0 auto;}
+.eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--sub);text-align:center;margin-bottom:6px;}
+.sec-title{font-size:clamp(17px,3vw,22px);font-weight:800;color:var(--navy);text-align:center;margin-bottom:6px;}
+.sec-sub{font-size:12px;color:var(--sub);text-align:center;margin-bottom:18px;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.einput{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;
+  font-size:14px;background:#fff;color:var(--text);outline:none;font-family:inherit;
+  margin-bottom:4px;transition:border-color .2s;}
+.einput:focus{border-color:var(--teal);}
+.edrop{background:#fff;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;
+  max-height:220px;overflow-y:auto;display:none;margin-bottom:10px;
+  box-shadow:0 4px 18px rgba(22,38,72,.12);}
+.edrow{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);
+  font-size:12px;font-weight:600;color:var(--navy);}
+.edrow:last-child{border-bottom:none;}
+.edrow:hover{background:#F0F4FB;}
+.edrow small{color:var(--sub);font-weight:400;margin-right:6px;}
+.eresult{background:#fff;border:1.5px solid var(--border);border-radius:12px;
+  padding:16px;display:none;margin-bottom:12px;}
+.ename{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:3px;}
+.eurl{font-size:10px;color:var(--teal);margin-bottom:10px;}
+.eranks{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px;}
+.ctabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap;}
+.ctab{padding:5px 14px;border-radius:6px;border:1.5px solid var(--border);
+  background:var(--light);color:var(--navy);font-size:11px;font-weight:700;cursor:pointer;}
+.ctab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+.codebox{background:#141E2D;border-radius:10px;overflow:hidden;}
+.codehdr{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:#0D1520;}
+.codelbl{color:rgba(255,255,255,.4);font-size:9.5px;font-weight:600;}
+.copybtn{padding:4px 16px;border-radius:6px;background:var(--green);color:#fff;
+  font-size:10px;font-weight:700;border:none;cursor:pointer;transition:background .2s;}
+.copybtn:hover,.copybtn.ok{background:var(--teal);}
+pre.ecode{padding:14px 16px;color:#8ECFA0;font-family:"Courier New",monospace;
+  font-size:10px;line-height:1.7;white-space:pre-wrap;word-break:break-all;
+  margin:0;max-height:220px;overflow-y:auto;}
+.enote{font-size:10.5px;color:var(--sub);margin-top:8px;font-style:italic;line-height:1.6;}
+.eprev-link{display:inline-block;font-size:10.5px;color:var(--teal);text-decoration:underline;cursor:pointer;margin-top:6px;}
+.fmtgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:14px;}
+.fmtcard{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.fmtcard h4{font-size:11px;font-weight:800;color:var(--navy);margin-bottom:5px;}
+.fmtcard p{font-size:10.5px;color:var(--sub);line-height:1.6;}
+#snapov{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);align-items:center;justify-content:center;}
+#snapov.show{display:flex;}
+#sncard{background:#fff;border-radius:16px;padding:22px;max-width:320px;width:92%;
+  text-align:center;border-top:4px solid #A8820A;box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.snlbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:6px;}
+.snnm{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:3px;line-height:1.3;}
+.snurl{font-size:10px;color:var(--teal);margin-bottom:10px;}
+.snscore{font-size:50px;font-weight:900;line-height:1;}
+.snslbl{font-size:11px;color:var(--sub);margin-bottom:10px;}
+.snranks{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:12px;}
+.snft{font-size:8px;color:var(--sub);border-top:1px solid var(--border);padding-top:8px;}
+.snacts{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+.snbtn{padding:8px 18px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;border:none;}
+.snwa{background:#25D366;color:#fff;}
+.snclose{background:var(--light);color:var(--navy);border:1.5px solid var(--border);}
+footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:16px;font-size:10.5px;line-height:2;}
+footer a{color:#A8820A;text-decoration:none;}
+footer strong{color:rgba(255,255,255,.75);}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="hby">GDPDI &nbsp;&middot;&nbsp; Feb-2026 &nbsp;&middot;&nbsp; Edition 1</p>
+  <h1>Global Durga Puja <span>Digital Index</span></h1>
+  <p class="hsub">A Definitive World Ranking of Durga Puja Association Websites Across All Nations</p>
+  <p class="hcredit">GDPDI Independent Research &nbsp;&middot;&nbsp; Not affiliated with any employer or organisation</p>
+  <div class="hstats">
+    <div class="hstat"><b>141</b> Associations</div>
+    <div class="hstat"><b>41</b> Countries</div>
+    <div class="hstat"><b>6</b> Continents</div>
+    <div class="hstat"><b>6</b> AI Adopters</div>
+    <div class="hstat">Feb 2026 &nbsp;&middot;&nbsp; E1</div>
+  </div>
+</header>
+
+<nav class="sitenav">
+  <a class="nlink active" href="#sec-rankings">&#127942; Rankings</a>
+  <a class="nlink" href="#sec-download">&#128229; Download</a>
+  <a class="nlink" href="#sec-embed">&#128279; Embed Badge</a>
+</nav>
+
+<div class="ctrl">
+  <div class="srow">
+    <input class="sbox" id="searchBox" placeholder="&#128269; Search association, country, city, state, website..." oninput="applyF()" autocomplete="off">
+    <button class="clrbtn" onclick="clearAll()">&#10006; Clear</button>
+  </div>
+  <div class="frow">
+    <select class="fsel" id="fCont" onchange="applyF()">
+      <option value="">All Continents</option>
+      <option>Africa</option><option>Asia</option><option>Europe</option>
+      <option>North America</option><option>Oceania</option><option>South America</option>
+    </select>
+    <select class="fsel" id="fCountry" onchange="applyF()">
+      <option value="">All Countries</option>
+    </select>
+    <select class="fsel" id="fSort" onchange="applyF()">
+      <option value="gr">Global Rank</option>
+      <option value="sd">Score: High to Low</option>
+      <option value="sa">Score: Low to High</option>
+      <option value="az">Name: A to Z</option>
+      <option value="cr">Continent Rank</option>
+      <option value="nr">National Rank</option>
+    </select>
+    <span class="rcount" id="rcount"></span>
+  </div>
+</div>
+
+<div id="sec-rankings">
+  <div class="grid" id="grid"><div class="loading">Loading rankings&#8230;</div></div>
+</div>
+
+<div class="dlbar" id="sec-download">
+  <span class="dllabel">&#128229; Full Research Report</span>
+  <a class="dlbtn" href="GDPDI-Feb-2026-E1.docx" download>
+    <span style="font-size:24px;">&#128221;</span>
+    <div>
+      <div class="dlbtn-title">GDPDI-Feb-2026-E1.docx</div>
+      <div class="dlbtn-sub">All rankings &middot; Profiles &middot; AI analysis &middot; Recommendations &middot; Appendices</div>
+    </div>
+  </a>
+</div>
+
+<div class="section" id="sec-embed">
+  <div class="section-inner">
+    <div class="eyebrow">For Association Websites</div>
+    <div class="sec-title">&#128279; Embed Your Rank Badge</div>
+    <div class="sec-sub">Search your association below. A personalised badge code appears instantly &mdash; copy it and paste it into your website. The badge shows your global rank, continent rank, national rank, state rank, and score with an animated ticker.</div>
+
+    <input class="einput" id="embedSearch" placeholder="&#128269; Type your association name&#8230;" oninput="searchEmbed()" autocomplete="off">
+    <div class="edrop" id="edrop"></div>
+
+    <div class="eresult" id="eresult">
+      <div class="ename" id="er-name"></div>
+      <div class="eurl" id="er-url"></div>
+      <div class="eranks" id="er-ranks"></div>
+      <div class="ctabs">
+        <button class="ctab on" onclick="switchCode(this,'iframe')">iframe</button>
+        <button class="ctab" onclick="switchCode(this,'html')">Pure HTML</button>
+        <button class="ctab" onclick="switchCode(this,'script')">Script tag</button>
+      </div>
+      <div class="codebox">
+        <div class="codehdr">
+          <span class="codelbl" id="codelbl"></span>
+          <button class="copybtn" id="copybtn" onclick="copyCode()">Copy</button>
+        </div>
+        <pre class="ecode" id="ecode"></pre>
+      </div>
+      <div class="enote" id="enote"></div>
+      <a class="eprev-link" id="eprevlink" target="_blank">&#8599; Preview badge in new tab</a>
+    </div>
+
+    <div class="fmtgrid">
+      <div class="fmtcard"><h4>&#10003; iframe</h4><p>Paste one tag anywhere on your page. Works on Wix, Squarespace, raw HTML, GitHub Pages.</p></div>
+      <div class="fmtcard"><h4>&#10003; Pure HTML</h4><p>Fully self-contained with inline styles. Use if your platform blocks iframes.</p></div>
+      <div class="fmtcard"><h4>&#10003; Script tag</h4><p>Dynamically injects the badge. Best for WordPress and custom-coded sites.</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Global Durga Puja Digital Index</strong> &nbsp;&middot;&nbsp; GDPDI-Feb-2026-E1<br>
+  <strong>GDPDI Independent Research</strong> &nbsp;&middot;&nbsp; Not affiliated with any employer or organisation<br>
+  Score &ge;78 Outstanding &nbsp;&middot;&nbsp; 62&ndash;77 Good &nbsp;&middot;&nbsp; &lt;62 Developing<br>
+  <a href="https://github.com/gdpdi/gdpdi" target="_blank">GitHub</a> &nbsp;&middot;&nbsp;
+  <a href="https://gdpdi.github.io/gdpdi/" target="_blank">gdpdi.github.io/gdpdi</a>
+</footer>
+
+<div id="snapov" onclick="if(event.target===this)closeSnap()">
+  <div id="sncard">
+    <div class="snlbl">GDPDI &nbsp;&middot;&nbsp; Feb-2026 &nbsp;&middot;&nbsp; Edition 1</div>
+    <div class="snnm" id="snnm"></div>
+    <div class="snurl" id="snurl"></div>
+    <div class="snscore" id="snscore"></div>
+    <div class="snslbl">out of 100 points</div>
+    <div class="snranks" id="snranks"></div>
+    <div class="snft">gdpdi.github.io/gdpdi &nbsp;&middot;&nbsp; GDPDI Independent Research</div>
+    <div class="snacts">
+      <button class="snbtn snwa" onclick="shareWA()">&#128242; WhatsApp</button>
+      <button class="snbtn snclose" onclick="closeSnap()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+var BASE='https://gdpdi.github.io/gdpdi';
+var curEmbed=null,curCode='iframe',curSnap=null;
+
+(function(){
+  var c=[],sel=document.getElementById('fCountry');
+  GDPDI_DATA.forEach(function(d){if(c.indexOf(d.country)<0)c.push(d.country);});
+  c.sort().forEach(function(v){var o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o);});
+})();
+
+(function(){
+  if(!window.IntersectionObserver)return;
+  var ids=['sec-rankings','sec-download','sec-embed'];
+  var links=document.querySelectorAll('.nlink');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);});
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  ids.forEach(function(id){var el=document.getElementById(id);if(el)obs.observe(el);});
+})();
+
+function scClass(s){return s>=78?'gr':s>=62?'am':'re';}
+var FLAGS={'India':'&#127470;&#127475;','United States of America':'&#127482;&#127480;','United Kingdom':'&#127468;&#127463;','Canada':'&#127464;&#127462;','Australia':'&#127462;&#127482;','Germany':'&#127465;&#127466;','Singapore':'&#127480;&#127468;','France':'&#127467;&#127479;','Netherlands':'&#127475;&#127473;','Japan':'&#127471;&#127477;','Switzerland':'&#127464;&#127469;','Norway':'&#127475;&#127476;','Sweden':'&#127480;&#127466;','Denmark':'&#127465;&#127472;','Belgium':'&#127463;&#127466;','Ireland':'&#127470;&#127466;','Italy':'&#127470;&#127481;','Spain':'&#127466;&#127480;','Austria':'&#127462;&#127481;','Finland':'&#127467;&#127470;','Poland':'&#127477;&#127473;','Malaysia':'&#127474;&#127486;','South Korea':'&#127472;&#127479;','United Arab Emirates':'&#127462;&#127466;','Brazil':'&#127463;&#127479;','New Zealand':'&#127475;&#127487;','South Africa':'&#127487;&#127462;','Qatar':'&#127478;&#127462;','Kenya':'&#127472;&#127466;','Thailand':'&#127481;&#127469;','Philippines':'&#127477;&#127469;','Hong Kong':'&#127469;&#127472;','Nigeria':'&#127475;&#127468;','Bangladesh':'&#127463;&#127465;','Sri Lanka':'&#127473;&#127472;'};
+function flag(c){return FLAGS[c]||'&#127758;';}
+
+function chips(d){
+  var h='<span class="chip chip-g">&#127757; Global #'+d.global_rank+'</span>';
+  h+='<span class="chip chip-c">'+d.continent+' #'+d.cont_rank+'</span>';
+  var nat=d.country==='India'?'&#127470;&#127475; India':'National';
+  h+='<span class="chip chip-n">'+nat+' #'+d.nat_rank+'</span>';
+  if(d.state_rank&&d.state_rank!=='-'&&d.state)h+='<span class="chip chip-s">&#128205; '+d.state+' #'+d.state_rank+'</span>';
+  if(d.sc&&d.sc[8]>0)h+='<span class="chip chip-ai">&#129302; AI</span>';
+  return h;
+}
+
+function card(d,idx){
+  var gr=d.global_rank;
+  var tc=gr===1?'r1':gr<=3?'r3':gr<=10?'r10':'';
+  var sc=scClass(d.total);
+  return '<div class="card '+tc+'">'+
+    '<div class="chead"><div class="rbadge'+(gr===1?' gold':'')+'>#'+gr+' Global</div><div class="scircle '+sc+'">'+d.total+'</div></div>'+
+    '<div class="cname">'+d.name+'</div>'+
+    '<div class="cloc">'+flag(d.country)+' <span class="ctag">'+d.country+'</span> <span class="contag">'+d.continent+'</span>'+(d.state?' <span style="font-size:9px;color:var(--sub);">'+d.state+'</span>':'')+' </div>'+
+    '<div class="chips">'+chips(d)+'</div>'+
+    '<div class="cacts">'+
+      '<a class="bvisit" href="'+d.url+'" target="_blank" rel="noopener">&#127760; Visit Website</a>'+
+      '<button class="bshare" onclick="openSnap('+idx+')" title="Share">&#128242;</button>'+
+      '<button class="bembed" onclick="triggerEmbed('+idx+')" title="Get embed code">&#128279;</button>'+
+    '</div></div>';
+}
+
+function applyF(){
+  var q=(document.getElementById('searchBox').value||'').toLowerCase().trim();
+  var co=document.getElementById('fCont').value;
+  var cy=document.getElementById('fCountry').value;
+  var s=document.getElementById('fSort').value;
+  var f=GDPDI_DATA.filter(function(d){
+    if(co&&d.continent!==co)return false;
+    if(cy&&d.country!==cy)return false;
+    if(q){var t=(d.name+' '+d.country+' '+d.continent+' '+(d.state||'')+' '+(d.region||'')+' '+d.url).toLowerCase();if(t.indexOf(q)<0)return false;}
+    return true;
+  });
+  f.sort(function(a,b){
+    if(s==='gr')return a.global_rank-b.global_rank;
+    if(s==='sd')return b.total-a.total;
+    if(s==='sa')return a.total-b.total;
+    if(s==='az')return a.name.localeCompare(b.name);
+    if(s==='cr')return(a.cont_rank||999)-(b.cont_rank||999);
+    if(s==='nr')return(parseInt(a.nat_rank)||999)-(parseInt(b.nat_rank)||999);
+    return a.name.localeCompare(b.name);
+  });
+  document.getElementById('rcount').textContent=f.length+' / '+GDPDI_DATA.length;
+  if(!f.length){document.getElementById('grid').innerHTML='<div class="nores">No results. <button class="clrbtn" onclick="clearAll()">Clear filters</button></div>';return;}
+  var html='';f.forEach(function(d){html+=card(d,GDPDI_DATA.indexOf(d));});
+  document.getElementById('grid').innerHTML=html;
+}
+
+function clearAll(){
+  document.getElementById('searchBox').value='';
+  document.getElementById('fCont').value='';
+  document.getElementById('fCountry').value='';
+  document.getElementById('fSort').value='gr';
+  applyF();
+}
+
+function triggerEmbed(idx){
+  fillEmbed(idx);
+  document.getElementById('sec-embed').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function searchEmbed(){
+  var q=(document.getElementById('embedSearch').value||'').toLowerCase().trim();
+  var dd=document.getElementById('edrop');
+  if(!q||q.length<2){dd.style.display='none';return;}
+  var m=GDPDI_DATA.filter(function(d){return d.name.toLowerCase().indexOf(q)>=0||(d.url||'').toLowerCase().indexOf(q)>=0;}).slice(0,9);
+  if(!m.length){dd.innerHTML='<div class="edrow" style="color:var(--sub);cursor:default;">No match — try fewer words</div>';}
+  else{dd.innerHTML=m.map(function(d){return '<div class="edrow" onclick="fillEmbed('+GDPDI_DATA.indexOf(d)+')"><small>'+d.country+'</small>'+d.name+'</div>';}).join('');}
+  dd.style.display='block';
+}
+
+function fillEmbed(idx){
+  var d=GDPDI_DATA[idx];curEmbed=d;
+  document.getElementById('edrop').style.display='none';
+  document.getElementById('embedSearch').value=d.name;
+  document.getElementById('er-name').textContent=d.name;
+  document.getElementById('er-url').textContent=d.url.replace(/^https?:\/\//,'');
+  document.getElementById('er-ranks').innerHTML=chips(d);
+  document.getElementById('eresult').style.display='block';
+  renderCode();
+}
+
+function switchCode(btn,type){
+  curCode=type;
+  document.querySelectorAll('.ctab').forEach(function(t){t.classList.remove('on');});
+  btn.classList.add('on');
+  renderCode();
+}
+
+function renderCode(){
+  if(!curEmbed)return;
+  var d=curEmbed;
+  var wUrl=BASE+'/embed.html?id='+encodeURIComponent(d.id);
+  var sc=d.total>=78?'#006937':d.total>=62?'#AF6900':'#9B1C1C';
+  var bg=d.total>=78?'#EDFAF3':d.total>=62?'#FFF8EE':'#FEF2F2';
+  var ur=d.url.replace(/^https?:\/\//,'');
+  var nat=d.country==='India'?'India':'National';
+  var code,lbl,note;
+  if(curCode==='iframe'){
+    code='<iframe\n  src="'+wUrl+'"\n  width="360"\n  height="200"\n  frameborder="0"\n  scrolling="no"\n  style="border-radius:14px;border:none;max-width:100%;"\n  title="GDPDI Rank Badge"\n></iframe>';
+    lbl='iframe \u2014 paste anywhere in your page HTML';
+    note='Works on Wix, Squarespace, raw HTML, GitHub Pages. Resize with width and height attributes. Updates automatically with each new GDPDI edition.';
+  }else if(curCode==='html'){
+    var stRow='';
+    if(d.state_rank&&d.state_rank!=='-'&&d.state)stRow='\n      <span style="padding:3px 8px;border-radius:10px;font-size:10px;font-weight:700;border:1.5px solid #E8C888;background:#FFF8EE;color:#AF6900;">'+d.state+' #'+d.state_rank+'</span>';
+    code='<!-- GDPDI Badge: '+d.name+' -->\n<div style="font-family:sans-serif;background:#fff;border-radius:14px;padding:16px;max-width:360px;box-shadow:0 4px 20px rgba(22,38,72,.13);border-top:4px solid #A8820A;">\n  <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8890A0;margin-bottom:4px;">GDPDI \u00b7 Global Durga Puja Digital Index</div>\n  <div style="font-size:14px;font-weight:800;color:#162648;margin-bottom:2px;">'+d.name+'</div>\n  <div style="font-size:10px;color:#00586C;margin-bottom:10px;">'+ur+'</div>\n  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">\n    <div style="width:52px;height:52px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px solid '+sc+';background:'+bg+';">\n      <span style="font-size:18px;font-weight:900;color:'+sc+';">'+d.total+'</span>\n      <span style="font-size:8px;color:#8890A0;">/ 100</span>\n    </div>\n    <div style="display:flex;flex-wrap:wrap;gap:4px;">\n      <span style="padding:3px 8px;border-radius:10px;font-size:10px;font-weight:700;border:1.5px solid #BDD0FF;background:#EEF4FF;color:#162648;">Global #'+d.global_rank+'</span>\n      <span style="padding:3px 8px;border-radius:10px;font-size:10px;font-weight:700;border:1.5px solid #9FDCE4;background:#EEF9FA;color:#00586C;">'+d.continent+' #'+d.cont_rank+'</span>\n      <span style="padding:3px 8px;border-radius:10px;font-size:10px;font-weight:700;border:1.5px solid #B8D498;background:#F4F7EE;color:#006937;">'+nat+' #'+d.nat_rank+'</span>'+stRow+'\n    </div>\n  </div>\n  <div style="font-size:8.5px;color:#8890A0;text-align:center;border-top:1px solid #EEF0F8;padding-top:7px;">Ranked by <a href="'+BASE+'" style="color:#A8820A;font-weight:700;text-decoration:none;">GDPDI Independent Research</a></div>\n</div>';
+    lbl='Pure HTML \u2014 self-contained, no iframe needed';
+    note='Works where iframes are blocked. Static badge \u2014 replace when a new GDPDI edition is published.';
+  }else{
+    code='<div id="gdpdi-badge"></div>\n<script>\n(function(){\n  var f=document.createElement("iframe");\n  f.src="'+wUrl+'";\n  f.width="360";f.height="200";\n  f.frameBorder="0";f.scrolling="no";\n  f.style.cssText="border-radius:14px;border:none;max-width:100%;";\n  document.getElementById("gdpdi-badge").appendChild(f);\n})();\n<\/script>';
+    lbl='Script tag \u2014 dynamically injects the iframe';
+    note='Place the div where you want the badge; put the script before </body>. Best for WordPress. Updates automatically with each new edition.';
+  }
+  document.getElementById('ecode').textContent=code;
+  document.getElementById('codelbl').textContent=lbl;
+  document.getElementById('enote').textContent=note;
+  document.getElementById('eprevlink').href=wUrl;
+}
+
+function copyCode(){
+  var code=document.getElementById('ecode').textContent;
+  var btn=document.getElementById('copybtn');
+  function ok(){btn.textContent='\u2713 Copied!';btn.classList.add('ok');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('ok');},2500);}
+  if(navigator.clipboard){navigator.clipboard.writeText(code).then(ok).catch(fb);}else{fb();}
+  function fb(){var r=document.createRange();r.selectNodeContents(document.getElementById('ecode'));window.getSelection().removeAllRanges();window.getSelection().addRange(r);try{document.execCommand('copy');ok();}catch(e){}}
+}
+
+function openSnap(idx){
+  var d=GDPDI_DATA[idx];curSnap=d;
+  var sc=scClass(d.total);
+  document.getElementById('snnm').textContent=d.name;
+  document.getElementById('snurl').textContent=d.url.replace(/^https?:\/\//,'');
+  var ss=document.getElementById('snscore');ss.textContent=d.total;
+  ss.style.color=sc==='gr'?'#006937':sc==='am'?'#AF6900':'#9B1C1C';
+  document.getElementById('snranks').innerHTML=chips(d);
+  document.getElementById('snapov').classList.add('show');
+}
+function closeSnap(){document.getElementById('snapov').classList.remove('show');}
+function shareWA(){
+  if(!curSnap)return;
+  var d=curSnap;
+  var msg='*'+d.name+'*\n\nGlobal Rank: #'+d.global_rank+'\n'+d.continent+' Rank: #'+d.cont_rank+'\n'+(d.country==='India'?'India':'National')+' Rank: #'+d.nat_rank;
+  if(d.state_rank&&d.state_rank!=='-'&&d.state)msg+='\n'+d.state+' Rank: #'+d.state_rank;
+  msg+='\n\nScore: *'+d.total+'/100*\n'+d.url+'\n\nRanked by GDPDI Independent Research\nhttps://gdpdi.github.io/gdpdi/';
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+
+applyF();
+</script>
+</body>
+</html>
