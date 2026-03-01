@@ -103,11 +103,7 @@ The iframe and script tag versions update automatically with each new GDPDI edit
 
 Every association already in the index is **re-evaluated automatically** with each new edition of the GDPDI — no action or request is needed. If your website has improved since the last evaluation, those improvements will be captured in the next edition.
 
-**To have your association considered for inclusion in a future edition**, open an issue on this repository with your association name and website URL:
 
-→ [Open an issue on GitHub](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
-
----
 
 ## Download the Full Report
 
