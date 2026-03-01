@@ -2,10 +2,10 @@
 
 # 🙏 Global Durga Puja Digital Index
 
-**GDPDI &nbsp;&middot;&nbsp; February 2026 &nbsp;&middot;&nbsp; Edition 1**
+**GDPDI &nbsp;·&nbsp; February 2026 &nbsp;·&nbsp; Edition 1**
 
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
-[![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX_150KB-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)
+[![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)
 
 ![Associations](https://img.shields.io/badge/Associations-141-162648?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-41-A8820A?style=flat-square)
@@ -17,7 +17,7 @@
 
 ---
 
-*For the first time, every Bengali association can see exactly where it stands in the world &mdash; and precisely what it needs to do to rise.*
+*For the first time, every Bengali Durga Puja association can see exactly where it stands in the world — and precisely what it can do to rise.*
 
 ---
 
@@ -25,20 +25,20 @@
 
 The **Global Durga Puja Digital Index** is the world's first structured ranking of Durga Puja association websites across all nations. Durga Puja is a **UNESCO-inscribed Intangible Cultural Heritage of Humanity** (December 2021), celebrated by Bengali communities on six continents.
 
-Every website in the index is scored against eleven internationally grounded criteria &mdash; from visual design and mobile performance to Bengali language provision and AI adoption. Every score is transparent and independently verifiable by visiting the association's own website.
+Every website is scored against eleven internationally grounded criteria — from visual design and mobile responsiveness to Bengali language provision and AI adoption. Every score is transparent and independently verifiable by visiting the association's own website.
 
-**GDPDI Independent Research** &mdash; not affiliated with any employer, organisation, government body, or commercial entity.
+**GDPDI Independent Research** — not affiliated with any employer, organisation, government body, or commercial entity.
 
 ---
 
-## Global Top 10 &mdash; Edition 1
+## Global Top 10 — Edition 1
 
 | Rank | Association | Country | Score |
 |:----:|-------------|:-------:|:-----:|
-| 🥇&nbsp;1 | Dakshini Bengali Assoc. of California | 🇺🇸 USA | **90** |
-| 🥈&nbsp;2 | Bengali Association Singapore (BAS) | 🇸🇬 Singapore | **89** |
-| 🥉&nbsp;3 | Bay Area Prabasi | 🇺🇸 USA | **88** |
-| 4 | Bengal Heritage Foundation – London | 🇬🇧 UK | **87** |
+| 🥇 1 | Dakshini Bengali Assoc. of California | 🇺🇸 USA | **90** |
+| 🥈 2 | Bengali Association Singapore (BAS) | 🇸🇬 Singapore | **89** |
+| 🥉 3 | Bay Area Prabasi | 🇺🇸 USA | **88** |
+| 4 | Bengal Heritage Foundation – London Sharad Utsav | 🇬🇧 UK | **87** |
 | 5 | Bengali Cultural Assoc. UK (BCA UK) | 🇬🇧 UK | **86** |
 | 6 | Kallol – Indian Bengali Assoc. Netherlands | 🇳🇱 Netherlands | **85** |
 | 7 | Sanskritik Bengali Association | 🇮🇳 India | **84** |
@@ -46,7 +46,7 @@ Every website in the index is scored against eleven internationally grounded cri
 | 8 | BDPC – Bengaluru Durga Puja Committee | 🇮🇳 India | **83** |
 | 8 | Houston Durga Bari Society | 🇺🇸 USA | **83** |
 
-Full rankings, filtering by country and continent, and per-criterion sorting are available at **[gdpdi.github.io/gdpdi](https://gdpdi.github.io/gdpdi)**.
+Full rankings with live search, country and continent filtering, and per-criterion sorting: **[gdpdi.github.io/gdpdi](https://gdpdi.github.io/gdpdi)**
 
 ---
 
@@ -56,15 +56,13 @@ Full rankings, filtering by country and continent, and per-criterion sorting are
 |:----:|:-----:|---------------|
 | Outstanding | ≥78 / 100 | World-class digital presence. Benchmark standard for the global Bengali community. |
 | Good | 62–77 / 100 | Solid presence with clear, achievable areas for improvement. |
-| Developing | <62 / 100 | Foundation exists. Targeted improvements can yield rapid gains. |
+| Developing | <62 / 100 | Foundation in place. Targeted improvements can yield rapid gains. |
 
-**Edition 1 breakdown:** 29 Outstanding &nbsp;·&nbsp; 77 Good &nbsp;·&nbsp; 35 Developing
+**Edition 1 results:** 29 Outstanding · 77 Good · 35 Developing
 
 ---
 
 ## Scoring Framework
-
-The 100-point score covers eleven criteria:
 
 | Code | Criterion | Max |
 |:----:|-----------|:---:|
@@ -85,56 +83,39 @@ The 100-point score covers eleven criteria:
 
 ## Embed Your Association's Rank Badge
 
-Any association listed in the index can display a live rank badge on its own website. The badge shows the global rank, continent rank, national rank, state rank (for India), and score &mdash; with an animated ticker.
+Any association in the index can display a live rank badge on its own website — showing global rank, continent rank, national rank, state rank (India), and score, with an animated scrolling ticker.
 
-**To get your embed code:**
-1. Go to [gdpdi.github.io/gdpdi](https://gdpdi.github.io/gdpdi)
-2. Scroll to **"Embed Your Association's Rank Badge"** or tap it in the navigation bar
+**How to get your embed code:**
+
+1. Go to **[gdpdi.github.io/gdpdi](https://gdpdi.github.io/gdpdi)**
+2. Scroll to **Embed Your Association's Rank Badge** (or tap it in the navigation bar)
 3. Type your association's name in the search box and select it from the dropdown
-4. Your personalised embed code appears instantly &mdash; choose iframe, Pure HTML, or Script tag
+4. Your personalised code appears instantly — choose **iframe**, **Pure HTML**, or **Script tag**
 5. Click **Copy Code** and paste it into your website
 
-Three formats are available:
+**Supported platforms:** Wix · Squarespace · WordPress · Raw HTML · GitHub Pages · Webflow
 
-**iframe** &mdash; works on Wix, Squarespace, raw HTML, GitHub Pages:
-```html
-<iframe
-  src="https://gdpdi.github.io/gdpdi/embed.html?id=YOUR_ASSOCIATION_ID"
-  width="360" height="200"
-  frameborder="0" scrolling="no"
-  style="border-radius:14px;border:none;max-width:100%;"
-  title="GDPDI Rank Badge"
-></iframe>
-```
-*(The correct ID for your association is generated automatically when you search on the website &mdash; you do not need to know it in advance.)*
-
-**Pure HTML** &mdash; fully self-contained, no JavaScript. Use this if your platform blocks iframes.
-
-**Script tag** &mdash; dynamically injects the iframe. Best for WordPress and custom-coded sites.
+The iframe and script tag versions update automatically with each new GDPDI edition.
 
 ---
 
-## Submit or Request Re-evaluation
+## New Editions & Re-evaluation
 
-**Is your association missing?**
-If your association organises or participates in Durga Puja and has a publicly accessible website, you can submit it for consideration in the next edition.
-&rarr; [Submit on the GDPDI website](https://gdpdi.github.io/gdpdi) (scroll to "Submit New Association")
+Every association already in the index is **re-evaluated automatically** with each new edition of the GDPDI — no action or request is needed. If your website has improved since the last evaluation, those improvements will be captured in the next edition.
 
-**Has your website improved?**
-If your website has improved significantly since the last evaluation &mdash; new features, Bengali content, registration, AI &mdash; you can request re-evaluation for the next edition.
-&rarr; [Request re-evaluation on the GDPDI website](https://gdpdi.github.io/gdpdi) (scroll to "Request Re-evaluation")
+**To have your association considered for inclusion in a future edition**, open an issue on this repository with your association name and website URL:
 
-Both processes open a pre-filled GitHub Issue. A free GitHub account is required to post.
+→ [Open an issue on GitHub](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
 
 ---
 
 ## Download the Full Report
 
-The complete GDPDI-Feb-2026-E1 research report is available as a Word document:
+The complete research report is available as a Word document:
 
-&rarr; [**Download GDPDI-Feb-2026-E1.docx**](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx) (~150 KB)
+→ **[GDPDI-Feb-2026-E1.docx](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)** (~150 KB)
 
-The report includes all global, continental, national, and state rankings; the full scoring framework; AI adopter analysis; the embed guide; and the complete alphabetical appendix.
+Contents: global rankings · continental rankings · India national & state rankings · AI adopter analysis · scoring framework · embed badge guide · alphabetical appendix · licence & citation.
 
 ---
 
@@ -142,22 +123,19 @@ The report includes all global, continental, national, and state rankings; the f
 
 ```
 gdpdi/
-├── index.html                    # Interactive ranking website
-├── embed.html                    # Rank badge widget (loaded in iframes)
-├── data.js                       # All association data (loaded by both HTML files)
-├── GDPDI-Feb-2026-E1.docx       # Full research report
+├── index.html                  # Interactive ranking website
+├── embed.html                  # Rank badge widget (loaded inside iframes)
+├── data.js                     # All association data (loaded by both HTML files)
+├── GDPDI-Feb-2026-E1.docx     # Full research report
 └── .github/
     └── ISSUE_TEMPLATE/
-        ├── submit-association.md
-        ├── request-revaluation.md
-        └── config.yml
 ```
 
 ---
 
 ## Citation
 
-> GDPDI Independent Research. (2026). *Global Durga Puja Digital Index &mdash; Edition 1*. https://gdpdi.github.io/gdpdi
+> GDPDI Independent Research. (2026). *Global Durga Puja Digital Index — Edition 1*. https://gdpdi.github.io/gdpdi
 
 Reference code: `GDPDI-Feb-2026-E1`
 
@@ -165,23 +143,23 @@ Reference code: `GDPDI-Feb-2026-E1`
 
 ## Licence
 
-**CC BY-NC 4.0** &mdash; Free to share for non-commercial use with attribution:
-> *"Source: GDPDI-Feb-2026-E1 &mdash; gdpdi.github.io/gdpdi"*
+**CC BY-NC 4.0** — Free to share for non-commercial purposes with attribution:
+> *"Source: GDPDI-Feb-2026-E1 — gdpdi.github.io/gdpdi"*
 
 ---
 
 ## Disclaimer
 
-Independent research. Scores reflect the state of each website at the time of evaluation and represent the researcher's professional judgement. They are not legal determinations. Scores reflect website quality, not the cultural significance of any association's celebration. GDPDI Independent Research is not affiliated with any employer, organisation, government body, or commercial entity.
+Independent research. Scores represent the researcher's professional assessment and are not legal determinations. They reflect website quality, not the cultural significance of any association's celebration. GDPDI Independent Research is not affiliated with any employer, organisation, government body, or commercial entity.
 
 ---
 
 <div align="center">
 
-**শুভ বিজয়া &nbsp;&middot;&nbsp; Shubho Bijoya**
+**শুভ বিজয়া · Shubho Bijoya**
 
-[🌐 Website](https://gdpdi.github.io/gdpdi) &nbsp;&middot;&nbsp; [📄 Report](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx) &nbsp;&middot;&nbsp; [📥 Submit](https://github.com/gdpdi/gdpdi/issues/new?labels=submission%2Cpending-review&template=submit-association.md&title=%5BSUBMIT%5D) &nbsp;&middot;&nbsp; [🔄 Re-evaluate](https://github.com/gdpdi/gdpdi/issues/new?labels=re-evaluation%2Cpending-review&template=request-revaluation.md&title=%5BRE-EVAL%5D)
+[🌐 Website](https://gdpdi.github.io/gdpdi) · [📄 Full Report](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx) · [📥 Submit Association](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
 
-*GDPDI Independent Research &nbsp;&middot;&nbsp; GDPDI-Feb-2026-E1*
+*GDPDI Independent Research · GDPDI-Feb-2026-E1*
 
 </div>
