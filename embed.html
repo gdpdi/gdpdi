@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:"Segoe UI",system-ui,sans-serif;background:transparent;display:flex;align-items:center;justify-content:center;padding:8px;}
+.w{background:#fff;border-radius:14px;padding:16px 18px;width:100%;max-width:380px;box-shadow:0 4px 24px rgba(22,38,72,.14);border-top:4px solid #A8820A;}
+.lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8890A0;margin-bottom:5px;}
+.nm{font-size:14px;font-weight:800;color:#162648;line-height:1.3;margin-bottom:3px;}
+.ur{font-size:10px;color:#00586C;margin-bottom:11px;}
+.sr{display:flex;align-items:center;gap:12px;margin-bottom:11px;}
+.sc{width:52px;height:52px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px solid;flex-shrink:0;}
+.sc.g{border-color:#006937;background:#EDFAF3;} .sc.a{border-color:#AF6900;background:#FFF8EE;} .sc.r{border-color:#9B1C1C;background:#FEF2F2;}
+.sn{font-size:18px;font-weight:900;line-height:1;} .sn.g{color:#006937;} .sn.a{color:#AF6900;} .sn.r{color:#9B1C1C;}
+.sl{font-size:8px;color:#8890A0;font-weight:600;}
+.chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
+.chip{padding:3px 8px;border-radius:10px;font-size:10px;font-weight:700;border:1.5px solid;}
+.cg{background:#EEF4FF;border-color:#BDD0FF;color:#162648;} .cc{background:#EEF9FA;border-color:#9FDCE4;color:#00586C;}
+.cn{background:#F4F7EE;border-color:#B8D498;color:#006937;} .cs{background:#FFF8EE;border-color:#E8C888;color:#AF6900;}
+.tw{overflow:hidden;background:#F7F8FC;border-radius:8px;padding:5px 10px;margin-bottom:9px;}
+.tk{display:inline-block;white-space:nowrap;animation:tk 20s linear infinite;}
+@keyframes tk{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+.tt{font-size:9.5px;font-weight:700;color:#162648;}
+.ft{text-align:center;font-size:8.5px;color:#8890A0;border-top:1px solid #EEF0F8;padding-top:7px;}
+.ft a{color:#A8820A;text-decoration:none;font-weight:700;}
+.err{text-align:center;padding:30px 16px;color:#8890A0;font-size:12px;line-height:1.6;}
+</style>
+</head>
+<body>
+<div id="root"><div class="w"><div class="err">Loading...</div></div></div>
+<script src="data.js"></script>
+<script>
+function run() {
+  var params = new URLSearchParams(window.location.search);
+  var id = (params.get('id') || '').toLowerCase().trim();
+  var d = null;
+  for(var i = 0; i < GDPDI_DATA.length; i++) {
+    if(GDPDI_DATA[i].id === id || GDPDI_DATA[i].name.toLowerCase() === id) { d = GDPDI_DATA[i]; break; }
+  }
+  if(!d) {
+    document.getElementById('root').innerHTML = '<div class="w"><div class="err">Association not found.<br><small style="color:#ccc;">ID: ' + (id || 'none') + '</small><br><br><a href="https://gdpdi.github.io/gdpdi" style="color:#A8820A;font-size:11px;">Find your association at GDPDI</a></div></div>';
+    return;
+  }
+  var cl = d.total >= 78 ? 'g' : d.total >= 62 ? 'a' : 'r';
+  var ur = d.url.replace('https://','').replace('http://','');
+  var chips = '<span class="chip cg">&#127757; Global #' + d.global_rank + '</span>';
+  chips += '<span class="chip cc">&#128506; ' + d.continent + ' #' + d.cont_rank + '</span>';
+  var nat = d.country === 'India' ? '&#127470;&#127475; India' : '&#127963; National';
+  chips += '<span class="chip cn">' + nat + ' #' + d.nat_rank + '</span>';
+  if(d.state_rank && d.state_rank !== '-' && d.state) chips += '<span class="chip cs">&#128205; ' + d.state + ' #' + d.state_rank + '</span>';
+  var tk = 'Global #' + d.global_rank + '  &middot;  ' + d.continent + ' #' + d.cont_rank + '  &middot;  ' + (d.country === 'India' ? 'India' : 'National') + ' #' + d.nat_rank;
+  if(d.state_rank && d.state_rank !== '-' && d.state) tk += '  &middot;  ' + d.state + ' #' + d.state_rank;
+  tk += '  &middot;  Score ' + d.total + '/100  &middot;  GDPDI Feb-2026 Edition 1';
+  document.getElementById('root').innerHTML =
+    '<div class="w">' +
+    '<div class="lbl">GDPDI &middot; Global Durga Puja Digital Index</div>' +
+    '<div class="nm">' + d.name + '</div>' +
+    '<div class="ur">' + ur + '</div>' +
+    '<div class="sr"><div class="sc ' + cl + '"><span class="sn ' + cl + '">' + d.total + '</span><span class="sl">/ 100</span></div>' +
+    '<div class="chips">' + chips + '</div></div>' +
+    '<div class="tw"><span class="tk"><span class="tt">' + tk + '</span></span></div>' +
+    '<div class="ft">Ranked by <a href="https://gdpdi.github.io/gdpdi" target="_blank">GDPDI Independent Research</a> &middot; <a href="' + d.url + '" target="_blank">' + ur + '</a></div>' +
+    '</div>';
+}
+if(typeof GDPDI_DATA !== 'undefined') { run(); }
+else { document.addEventListener('DOMContentLoaded', run); }
+</script>
+</body>
+</html>
