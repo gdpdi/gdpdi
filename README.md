@@ -2,13 +2,12 @@
 
 # 🙏 Global Durga Puja Digital Index
 
-**GDPDI &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Edition 2**
-**Frameworks: W3C WCAG 2.2 · Nielsen Norman Group 10 Heuristics · Google Core Web Vitals · W3C Web Internationalisation · Gartner DXP 2024 · Google AI Principles · W3C Web Trust Framework — all open-access, non-proprietary, independently verifiable.**
+**GDPDI &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Edition 3**
 
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
-[![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)
+[![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E3.docx)
 
-![Associations](https://img.shields.io/badge/Associations-171-162648?style=flat-square)
+![Associations](https://img.shields.io/badge/Associations-180-162648?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-41-A8820A?style=flat-square)
 ![Continents](https://img.shields.io/badge/Continents-6-00586C?style=flat-square)
 ![AI Adopters](https://img.shields.io/badge/AI_Adopters-6-6A0DAD?style=flat-square)
@@ -30,9 +29,11 @@ Every website is scored against eleven internationally grounded criteria — fro
 
 **GDPDI Independent Research** — not affiliated with any employer, organisation, government body, or commercial entity.
 
+*Frameworks: W3C WCAG 2.2 · Nielsen Norman Group 10 Heuristics · Google Core Web Vitals · W3C Web Internationalisation · Gartner DXP 2024 · Google AI Principles · W3C Web Trust Framework — all open-access, non-proprietary, independently verifiable.*
+
 ---
 
-## Global Top 10 — Edition 1
+## Global Top 10 — Edition 3
 
 | Rank | Association | Country | Score |
 |:----:|-------------|:-------:|:-----:|
@@ -59,7 +60,7 @@ Full rankings with live search, country and continent filtering, and per-criteri
 | Good | 62–77 / 100 | Solid presence with clear, achievable areas for improvement. |
 | Developing | <62 / 100 | Foundation in place. Targeted improvements can yield rapid gains. |
 
-**Edition 1 results:** 29 Outstanding · 77 Good · 35 Developing
+**Edition 3 results:** 29 Outstanding · 92 Good · 59 Developing
 
 ---
 
@@ -104,13 +105,17 @@ The iframe and script tag versions update automatically with each new GDPDI edit
 
 Every association already in the index is **re-evaluated automatically** with each new edition of the GDPDI — no action or request is needed. If your website has improved since the last evaluation, those improvements will be captured in the next edition.
 
+**To have your association considered for inclusion in a future edition**, open an issue on this repository with your association name and website URL:
 
+→ [Open an issue on GitHub](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
+
+---
 
 ## Download the Full Report
 
 The complete research report is available as a Word document:
 
-→ **[GDPDI-Feb-2026-E1.docx](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)** (~150 KB)
+→ **[GDPDI-Mar-2026-E3.docx](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E3.docx)** (~106 KB)
 
 Contents: global rankings · continental rankings · India national & state rankings · AI adopter analysis · scoring framework · embed badge guide · alphabetical appendix · licence & citation.
 
@@ -123,7 +128,7 @@ gdpdi/
 ├── index.html                  # Interactive ranking website
 ├── embed.html                  # Rank badge widget (loaded inside iframes)
 ├── data.js                     # All association data (loaded by both HTML files)
-├── GDPDI-Feb-2026-E1.docx     # Full research report
+├── GDPDI-Mar-2026-E3.docx     # Full research report — Edition 3
 └── .github/
     └── ISSUE_TEMPLATE/
 ```
@@ -132,16 +137,16 @@ gdpdi/
 
 ## Citation
 
-> GDPDI Independent Research. (2026). *Global Durga Puja Digital Index — Edition 1*. https://gdpdi.github.io/gdpdi
+> GDPDI Independent Research. (2026). *Global Durga Puja Digital Index — Edition 3*. https://gdpdi.github.io/gdpdi
 
-Reference code: `GDPDI-Feb-2026-E1`
+Reference code: `GDPDI-Mar-2026-E3`
 
 ---
 
 ## Licence
 
 **CC BY-NC 4.0** — Free to share for non-commercial purposes with attribution:
-> *"Source: GDPDI-Feb-2026-E1 — gdpdi.github.io/gdpdi"*
+> *"Source: GDPDI-Mar-2026-E3 — gdpdi.github.io/gdpdi"*
 
 ---
 
@@ -149,14 +154,16 @@ Reference code: `GDPDI-Feb-2026-E1`
 
 Independent research. Scores represent the researcher's professional assessment and are not legal determinations. They reflect website quality, not the cultural significance of any association's celebration. GDPDI Independent Research is not affiliated with any employer, organisation, government body, or commercial entity.
 
+*Frameworks: W3C WCAG 2.2 · Nielsen Norman Group 10 Heuristics · Google Core Web Vitals · W3C Web Internationalisation · Gartner DXP 2024 · Google AI Principles · W3C Web Trust Framework — all open-access, non-proprietary, independently verifiable.*
+
 ---
 
 <div align="center">
 
 **শুভ বিজয়া · Shubho Bijoya**
 
-[🌐 Website](https://gdpdi.github.io/gdpdi) · [📄 Full Report](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx) · [📥 Submit Association](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
+[🌐 Website](https://gdpdi.github.io/gdpdi) · [📄 Full Report](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E3.docx) · [📥 Submit Association](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
 
-*GDPDI Independent Research · GDPDI-Feb-2026-E1*
+*GDPDI Independent Research · GDPDI-Mar-2026-E3*
 
 </div>
