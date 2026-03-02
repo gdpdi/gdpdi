@@ -3,6 +3,7 @@
 # 🙏 Global Durga Puja Digital Index
 
 **GDPDI &nbsp;·&nbsp; February 2026 &nbsp;·&nbsp; Edition 1**
+**Frameworks: W3C WCAG 2.2 · Nielsen Norman Group 10 Heuristics · Google Core Web Vitals · W3C Web Internationalisation · Gartner DXP 2024 · Google AI Principles · W3C Web Trust Framework — all open-access, non-proprietary, independently verifiable.**
 
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
 [![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)
