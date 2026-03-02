@@ -7,7 +7,7 @@
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
 [![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Feb-2026-E1.docx)
 
-![Associations](https://img.shields.io/badge/Associations-141-162648?style=flat-square)
+![Associations](https://img.shields.io/badge/Associations-171-162648?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-41-A8820A?style=flat-square)
 ![Continents](https://img.shields.io/badge/Continents-6-00586C?style=flat-square)
 ![AI Adopters](https://img.shields.io/badge/AI_Adopters-6-6A0DAD?style=flat-square)
