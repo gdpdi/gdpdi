@@ -52,7 +52,8 @@ function run() {
   if(d.state_rank && d.state_rank !== '-' && d.state) chips += '<span class="chip cs">&#128205; ' + d.state + ' #' + d.state_rank + '</span>';
   var tk = 'Global #' + d.global_rank + '  &middot;  ' + d.continent + ' #' + d.cont_rank + '  &middot;  ' + (d.country === 'India' ? 'India' : 'National') + ' #' + d.nat_rank;
   if(d.state_rank && d.state_rank !== '-' && d.state) tk += '  &middot;  ' + d.state + ' #' + d.state_rank;
-  tk += '  &middot;  Score ' + d.total + '/100  &middot;  GDPDI Feb-2026 Edition 1';
+  var meta = (typeof GDPDI_META !== 'undefined') ? GDPDI_META : {month:'March',year:2026,edition:3};
+  tk += '  &middot;  Score ' + d.total + '/100  &middot;  GDPDI ' + meta.month + ' ' + meta.year + ' Edition ' + meta.edition;
   document.getElementById('root').innerHTML =
     '<div class="w">' +
     '<div class="lbl">GDPDI &middot; Global Durga Puja Digital Index</div>' +
