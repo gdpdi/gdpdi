@@ -2,10 +2,10 @@
 
 # 🙏 Global Durga Puja Digital Index
 
-**GDPDI &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Edition 3**
+**GDPDI &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Edition 4**
 
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
-[![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E3.docx)
+[![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E4.docx)
 
 ![Associations](https://img.shields.io/badge/Associations-180-162648?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-41-A8820A?style=flat-square)
@@ -33,7 +33,7 @@ Every website is scored against eleven internationally grounded criteria — fro
 
 ---
 
-## Global Top 10 — Edition 3
+## Global Top 10 — Edition 4
 
 | Rank | Association | Country | Score |
 |:----:|-------------|:-------:|:-----:|
@@ -60,7 +60,7 @@ Full rankings with live search, country and continent filtering, and per-criteri
 | Good | 62–77 / 100 | Solid presence with clear, achievable areas for improvement. |
 | Developing | <62 / 100 | Foundation in place. Targeted improvements can yield rapid gains. |
 
-**Edition 3 results:** 29 Outstanding · 92 Good · 59 Developing
+**Edition 4 results:** 29 Outstanding · 92 Good · 59 Developing
 
 ---
 
@@ -105,48 +105,29 @@ The iframe and script tag versions update automatically with each new GDPDI edit
 
 Every association already in the index is **re-evaluated automatically** with each new edition of the GDPDI — no action or request is needed. If your website has improved since the last evaluation, those improvements will be captured in the next edition.
 
-**To have your association considered for inclusion in a future edition**, open an issue on this repository with your association name and website URL:
-
-→ [Open an issue on GitHub](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
-
----
 
 ## Download the Full Report
 
 The complete research report is available as a Word document:
 
-→ **[GDPDI-Mar-2026-E3.docx](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E3.docx)** (~106 KB)
+→ **[GDPDI-Mar-2026-E4.docx](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E4.docx)** (~106 KB)
 
 Contents: global rankings · continental rankings · India national & state rankings · AI adopter analysis · scoring framework · embed badge guide · alphabetical appendix · licence & citation.
 
 ---
 
-## Repository Structure
-
-```
-gdpdi/
-├── index.html                  # Interactive ranking website
-├── embed.html                  # Rank badge widget (loaded inside iframes)
-├── data.js                     # All association data (loaded by both HTML files)
-├── GDPDI-Mar-2026-E3.docx     # Full research report — Edition 3
-└── .github/
-    └── ISSUE_TEMPLATE/
-```
-
----
-
 ## Citation
 
-> GDPDI Independent Research. (2026). *Global Durga Puja Digital Index — Edition 3*. https://gdpdi.github.io/gdpdi
+> GDPDI Independent Research. (2026). *Global Durga Puja Digital Index — Edition 4*. https://gdpdi.github.io/gdpdi
 
-Reference code: `GDPDI-Mar-2026-E3`
+Reference code: `GDPDI-Mar-2026-E4`
 
 ---
 
 ## Licence
 
 **CC BY-NC 4.0** — Free to share for non-commercial purposes with attribution:
-> *"Source: GDPDI-Mar-2026-E3 — gdpdi.github.io/gdpdi"*
+> *"Source: GDPDI-Mar-2026-E4 — gdpdi.github.io/gdpdi"*
 
 ---
 
@@ -162,8 +143,8 @@ Independent research. Scores represent the researcher's professional assessment 
 
 **শুভ বিজয়া · Shubho Bijoya**
 
-[🌐 Website](https://gdpdi.github.io/gdpdi) · [📄 Full Report](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E3.docx) · [📥 Submit Association](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
+[🌐 Website](https://gdpdi.github.io/gdpdi) · [📄 Full Report](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E4.docx) · [📥 Submit Association](https://github.com/gdpdi/gdpdi/issues/new?labels=submission&title=%5BNEW+ASSOCIATION%5D)
 
-*GDPDI Independent Research · GDPDI-Mar-2026-E3*
+*GDPDI Independent Research · GDPDI-Mar-2026-E4*
 
 </div>
