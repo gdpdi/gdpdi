@@ -1,67 +1,58 @@
 /**
  * generate_readme.js
  * Run: node generate_readme.js
- * Reads data.js and writes README.md with all counts auto-computed.
- * No hardcoded association counts, country counts, or score band tallies.
+ * Reads data.js and writes README.md — all counts auto-computed. No hardcoding.
  */
-
 const fs = require('fs');
 
-// ── Load data ──
 const src = fs.readFileSync('./data.js', 'utf8');
 const match = src.match(/var GDPDI_DATA=(\[[\s\S]*?\]);/);
 if (!match) { console.error('Could not parse GDPDI_DATA from data.js'); process.exit(1); }
 const DATA = JSON.parse(match[1]);
 
-const metaMatch = src.match(/var GDPDI_META\s*=\s*(\{[\s\S]*?\});/);
-const metaSrc = metaMatch ? metaMatch[1] : '{}';
-// Parse META manually (it's not strict JSON — uses unquoted keys)
-const edition   = (metaSrc.match(/edition:\s*(\d+)/)    || [])[1] || '4';
-const month     = (metaSrc.match(/month:\s*"([^"]+)"/)  || [])[1] || 'March';
-const year      = (metaSrc.match(/year:\s*(\d+)/)       || [])[1] || '2026';
-const docxFile  = (metaSrc.match(/docx_file:\s*"([^"]+)"/) || [])[1] || `GDPDI-${month.slice(0,3)}-${year}-E${edition}.docx`;
+const metaSrc = (src.match(/var GDPDI_META\s*=\s*(\{[\s\S]*?\});/) || ['','{}'])[1];
+const edition  = (metaSrc.match(/edition:\s*(\d+)/)    || [])[1] || '4';
+const month    = (metaSrc.match(/month:\s*"([^"]+)"/)  || [])[1] || 'March';
+const year     = (metaSrc.match(/year:\s*(\d+)/)       || [])[1] || '2026';
+const docxFile = (metaSrc.match(/docx_file:\s*"([^"]+)"/) || [])[1] || `GDPDI-${month.slice(0,3)}-${year}-E${edition}.docx`;
 
-// ── Compute stats ──
 const total       = DATA.length;
-const countries   = new Set(DATA.map(e => e.country)).size;
-const continents  = new Set(DATA.map(e => e.continent)).size;
-const aiAdopters  = DATA.filter(e => e.ai_rank > 0).length;
-const outstanding = DATA.filter(e => e.total >= 78).length;
-const good        = DATA.filter(e => e.total >= 62 && e.total < 78).length;
-const developing  = DATA.filter(e => e.total < 62).length;
+const countries   = new Set(DATA.map(e=>e.country)).size;
+const continents  = new Set(DATA.map(e=>e.continent)).size;
+const aiAdopters  = DATA.filter(e=>e.ai_rank>0).length;
+const outstanding = DATA.filter(e=>e.total>=78).length;
+const good        = DATA.filter(e=>e.total>=62&&e.total<78).length;
+const developing  = DATA.filter(e=>e.total<62).length;
 const label       = `${month.slice(0,3)}-${year}`;
-const editionFull = `${month} ${year} · Edition ${edition}`;
 const docxUrl     = `https://gdpdi.github.io/gdpdi/${docxFile}`;
 
-// ── Top 10 (all entries with global_rank <= 10, dense) ──
-const top10 = DATA
-  .filter(e => e.global_rank <= 10)
-  .sort((a, b) => a.global_rank - b.global_rank || a.name.localeCompare(b.name));
-
-const FLAG = {
-  'United States of America':'🇺🇸', 'United Kingdom':'🇬🇧', 'India':'🇮🇳',
-  'Singapore':'🇸🇬', 'Netherlands':'🇳🇱', 'Germany':'🇩🇪', 'Canada':'🇨🇦',
-  'Australia':'🇦🇺', 'Bangladesh':'🇧🇩', 'Sweden':'🇸🇪', 'Switzerland':'🇨🇭',
-  'Thailand':'🇹🇭', 'New Zealand':'🇳🇿', 'South Africa':'🇿🇦',
-  'Belgium':'🇧🇪', 'Denmark':'🇩🇰', 'Finland':'🇫🇮', 'Poland':'🇵🇱',
-  'Ireland':'🇮🇪', 'France':'🇫🇷', 'Italy':'🇮🇹', 'Spain':'🇪🇸',
-  'Malaysia':'🇲🇾', 'Japan':'🇯🇵',
+const MEDAL={1:'🥇',2:'🥈',3:'🥉'};
+const FLAG={
+  'United States of America':'🇺🇸','United Kingdom':'🇬🇧','India':'🇮🇳',
+  'Singapore':'🇸🇬','Netherlands':'🇳🇱','Germany':'🇩🇪','Canada':'🇨🇦',
+  'Australia':'🇦🇺','Sweden':'🇸🇪','Switzerland':'🇨🇭','Thailand':'🇹🇭',
+  'New Zealand':'🇳🇿','South Africa':'🇿🇦','Belgium':'🇧🇪','Denmark':'🇩🇰',
+  'Finland':'🇫🇮','Poland':'🇵🇱','Ireland':'🇮🇪','France':'🇫🇷',
+  'Malaysia':'🇲🇾','Japan':'🇯🇵','Norway':'🇳🇴','Brazil':'🇧🇷',
+  'Bangladesh':'🇧🇩','Spain':'🇪🇸',
 };
-const MEDAL = { 1:'🥇', 2:'🥈', 3:'🥉' };
+const SHORT={'United States of America':'USA','United Kingdom':'UK'};
 
-const top10Rows = top10.map(e => {
-  const rank  = MEDAL[e.global_rank] || '';
-  const flag  = FLAG[e.country] || '';
-  const short = e.country === 'United States of America' ? 'USA' : e.country;
-  return `| ${rank} ${e.global_rank} | ${e.name} | ${flag} ${short} | **${e.total}** |`;
+const top10 = DATA
+  .filter(e=>e.global_rank<=10)
+  .sort((a,b)=>a.global_rank-b.global_rank||a.name.localeCompare(b.name));
+const top10Rows = top10.map(e=>{
+  const medal=MEDAL[e.global_rank]||'';
+  const flag=FLAG[e.country]||'';
+  const short=SHORT[e.country]||e.country;
+  return `| ${medal} ${e.global_rank} | ${e.name} | ${flag} ${short} | **${e.total}** |`;
 }).join('\n');
 
-// ── Render README ──
-const readme = `<div align="center">
+const readme=`<div align="center">
 
 # 🙏 Global Durga Puja Digital Index
 
-**GDPDI &nbsp;·&nbsp; ${editionFull}**
+**GDPDI &nbsp;·&nbsp; ${month} ${year} &nbsp;·&nbsp; Edition ${edition}**
 
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
 [![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](${docxUrl})
@@ -159,8 +150,6 @@ Every association already in the index is **re-evaluated automatically** with ea
 
 ## Download the Full Report
 
-The complete research report is available as a Word document:
-
 → **[${docxFile}](${docxUrl})**
 
 Contents: global rankings · continental rankings · national rankings · AI adopter analysis · all 256 score cards · alphabetical index · scoring framework.
@@ -171,11 +160,11 @@ Contents: global rankings · continental rankings · national rankings · AI ado
 
 \`\`\`
 gdpdi/
-├── index.html          # Interactive ranking website
-├── embed.html          # Rank badge widget
-├── data.js             # All association data (single source of truth)
+├── index.html            # Interactive ranking website
+├── embed.html            # Rank badge widget
+├── data.js               # All association data (single source of truth)
 ├── ${docxFile}
-└── generate_readme.js  # Run to regenerate this README from data.js
+└── generate_readme.js    # Run to regenerate this README from data.js
 \`\`\`
 
 ---
@@ -215,13 +204,8 @@ Independent research. Scores represent the researcher's professional assessment 
 `;
 
 fs.writeFileSync('./README.md', readme);
-console.log(`README.md generated:`);
-console.log(`  Associations : ${total}`);
-console.log(`  Countries    : ${countries}`);
-console.log(`  Continents   : ${continents}`);
-console.log(`  AI Adopters  : ${aiAdopters}`);
-console.log(`  Outstanding  : ${outstanding}`);
-console.log(`  Good         : ${good}`);
-console.log(`  Developing   : ${developing}`);
-console.log(`  Edition      : ${edition}  (${label})`);
-console.log(`  DOCX         : ${docxFile}`);
+console.log('README.md generated:');
+console.log('  Associations :', total);
+console.log('  Countries    :', countries);
+console.log('  AI Adopters  :', aiAdopters);
+console.log('  Outstanding  :', outstanding, '| Good:', good, '| Developing:', developing);
