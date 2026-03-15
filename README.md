@@ -2,7 +2,7 @@
 
 # 🙏 Global Durga Puja Digital Index
 
-**GDPDI &nbsp;·&nbsp; March 2026 · Edition 4**
+**GDPDI &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Edition 4**
 
 [![Live Site](https://img.shields.io/badge/Live_Website-gdpdi.github.io%2Fgdpdi-162648?style=for-the-badge)](https://gdpdi.github.io/gdpdi)
 [![Download DOCX](https://img.shields.io/badge/Download_Report-DOCX-00586C?style=for-the-badge)](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E4.docx)
@@ -40,8 +40,8 @@ Every website is scored against eleven internationally grounded criteria — fro
 | 🥇 1 | Dakshini Bengali Assoc. of California | 🇺🇸 USA | **90** |
 | 🥈 2 | Bengali Association Singapore (BAS) | 🇸🇬 Singapore | **89** |
 | 🥉 3 | Bay Area Prabasi | 🇺🇸 USA | **88** |
-|  4 | Bengal Heritage Foundation – London Sharad Utsav | 🇬🇧 United Kingdom | **87** |
-|  5 | Bengali Cultural Assoc. UK (BCA UK) | 🇬🇧 United Kingdom | **86** |
+|  4 | Bengal Heritage Foundation – London Sharad Utsav | 🇬🇧 UK | **87** |
+|  5 | Bengali Cultural Assoc. UK (BCA UK) | 🇬🇧 UK | **86** |
 |  6 | Kallol – Indian Bengali Assoc. Netherlands | 🇳🇱 Netherlands | **85** |
 |  7 | Sanskritik Bengali Association | 🇮🇳 India | **84** |
 |  8 | BARSHA – Bengali Assoc. HSR & Sarjapur | 🇮🇳 India | **83** |
@@ -67,7 +67,7 @@ Full rankings with live search, country and continent filtering: **[gdpdi.github
 | Good | 62–77 / 100 | Solid presence with clear, achievable areas for improvement. |
 | Developing | <62 / 100 | Foundation in place. Targeted improvements can yield rapid gains. |
 
-**Edition 4 results:** 29 Outstanding · 103 Good · 124 Developing
+**Edition 4 results:** 30 Outstanding · 102 Good · 124 Developing
 
 ---
 
@@ -116,8 +116,6 @@ Every association already in the index is **re-evaluated automatically** with ea
 
 ## Download the Full Report
 
-The complete research report is available as a Word document:
-
 → **[GDPDI-Mar-2026-E4.docx](https://gdpdi.github.io/gdpdi/GDPDI-Mar-2026-E4.docx)**
 
 Contents: global rankings · continental rankings · national rankings · AI adopter analysis · all 256 score cards · alphabetical index · scoring framework.
@@ -128,11 +126,11 @@ Contents: global rankings · continental rankings · national rankings · AI ado
 
 ```
 gdpdi/
-├── index.html          # Interactive ranking website
-├── embed.html          # Rank badge widget
-├── data.js             # All association data (single source of truth)
+├── index.html            # Interactive ranking website
+├── embed.html            # Rank badge widget
+├── data.js               # All association data (single source of truth)
 ├── GDPDI-Mar-2026-E4.docx
-└── generate_readme.js  # Run to regenerate this README from data.js
+└── generate_readme.js    # Run to regenerate this README from data.js
 ```
 
 ---
