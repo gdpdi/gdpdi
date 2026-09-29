@@ -65,7 +65,7 @@
 <button id="dpb-btn-pdf" type="button">Create PDF</button>
 <button id="dpb-btn-clear" class="dpb-gray" type="button">Remove picture</button>
 </div>
-<div class="dpb-status" id="dpb-status">Loading...</div>
+<div class="dpb-status dpb-err" id="dpb-status">Not started: your site is blocking scripts. See the note below the code.</div>
 </div>
 <div class="dpb-card" id="dpb-prevcard" style="display:none">
 <div class="dpb-nav">
@@ -75,7 +75,7 @@
 </div>
 <div class="dpb-prev"><canvas id="dpb-canvas"></canvas></div>
 </div>
-<script>
+<script type="text/plain" id="dpb-code">
 (function(){
 var PAGE_W=8.27,PAGE_H=11.69,CS=1.5,COLS=5,ROWS=7,PER=35,MAXC=20000;
 var D1='\x3C\x3C',D2='\x3E\x3E';
@@ -102,4 +102,253 @@ if(isNaN(start)||isNaN(end)){setStatus('Please enter valid start and end serial 
 if(lt(start,1)){setStatus('Start serial must be 1 or more.','err');return null;}
 if(lt(end,start)){setStatus('End serial must be greater than or equal to start serial.','err');return null;}
 var total=end-start+1;
-if(gt(tota
+if(gt(total,MAXC)){setStatus('Too many coupons. Keep the range under '+MAXC+'.','err');return null;}
+var meal=$('meal').value;
+return {
+letter:meal.charAt(0).toUpperCase(),
+start:start,end:end,total:total,
+pages:Math.ceil(total/PER),
+digits:Math.max(3,String(end).length),
+caption:$('caption').value.trim(),
+color:$('color').value,
+outline:$('outline').checked,
+guides:$('guides').checked
+};
+}
+function fitFont(ctx,text,maxW,size,weight){
+var sz=size;
+while(gt(sz,6)){
+ctx.font=weight+' '+sz+'px Arial, Helvetica, sans-serif';
+if(le(ctx.measureText(text).width,maxW)){break;}
+sz-=1;
+}
+return sz;
+}
+function drawText(ctx,text,cx,cy,size,p){
+ctx.textAlign='center';
+ctx.textBaseline='middle';
+if(p.outline){
+ctx.lineJoin='round';
+ctx.lineWidth=Math.max(2,size*0.22);
+ctx.strokeStyle='rgba(255,255,255,0.95)';
+ctx.strokeText(text,cx,cy);
+}
+ctx.fillStyle=p.color;
+ctx.fillText(text,cx,cy);
+}
+function drawCoupon(ctx,x,y,s,dpi,label,p){
+ctx.save();
+ctx.beginPath();
+ctx.rect(x,y,s,s);
+ctx.clip();
+if(bgImg){
+var sc=Math.max(s/bgImg.width,s/bgImg.height);
+var dw=bgImg.width*sc;
+var dh=bgImg.height*sc;
+ctx.drawImage(bgImg,x+(s-dw)/2,y+(s-dh)/2,dw,dh);
+}else{
+var g=ctx.createLinearGradient(x,y,x,y+s);
+g.addColorStop(0,'#fff6dc');
+g.addColorStop(1,'#ffd98a');
+ctx.fillStyle=g;
+ctx.fillRect(x,y,s,s);
+var m=0.07*dpi;
+ctx.strokeStyle='#b3261e';
+ctx.lineWidth=Math.max(1,dpi*0.012);
+ctx.setLineDash([dpi*0.05,dpi*0.03]);
+ctx.strokeRect(x+m,y+m,s-2*m,s-2*m);
+ctx.setLineDash([]);
+}
+if(p.caption){
+var cs=fitFont(ctx,p.caption,s*0.8,dpi*0.13,'bold');
+ctx.font='bold '+cs+'px Arial, Helvetica, sans-serif';
+drawText(ctx,p.caption,x+s/2,y+s*0.2,cs,p);
+}
+var fs=fitFont(ctx,label,s*0.8,dpi*0.36,'bold');
+ctx.font='bold '+fs+'px Arial, Helvetica, sans-serif';
+drawText(ctx,label,x+s/2,y+s*0.55,fs,p);
+ctx.restore();
+if(p.guides){
+ctx.save();
+ctx.strokeStyle='#888';
+ctx.lineWidth=1;
+ctx.strokeRect(x+0.5,y+0.5,s-1,s-1);
+ctx.restore();
+}
+}
+function renderPage(pageIdx,dpi,p,canvas){
+var W=Math.round(PAGE_W*dpi);
+var H=Math.round(PAGE_H*dpi);
+canvas.width=W;
+canvas.height=H;
+var ctx=canvas.getContext('2d');
+ctx.fillStyle='#fff';
+ctx.fillRect(0,0,W,H);
+var s=Math.round(CS*dpi);
+var mx=Math.round((W-COLS*s)/2);
+var my=Math.round((H-ROWS*s)/2);
+for(var k=0;lt(k,PER);k++){
+var serial=p.start+pageIdx*PER+k;
+if(gt(serial,p.end)){break;}
+var r=Math.floor(k/COLS);
+var c=k%COLS;
+drawCoupon(ctx,mx+c*s,my+r*s,s,dpi,p.letter+' '+pad(serial,p.digits),p);
+}
+}
+function showPreview(){
+var p=getParams();
+if(!p){return;}
+if(ge(curPage,p.pages)){curPage=p.pages-1;}
+if(lt(curPage,0)){curPage=0;}
+$('prevcard').style.display='block';
+renderPage(curPage,100,p,$('canvas'));
+$('pginfo').textContent='Page '+(curPage+1)+' of '+p.pages;
+$('pg-prev').disabled=le(curPage,0);
+$('pg-next').disabled=ge(curPage,p.pages-1);
+setStatus(p.total+' coupons on '+p.pages+' page(s): '+p.letter+' '+pad(p.start,p.digits)+' to '+p.letter+' '+pad(p.end,p.digits)+'.','ok');
+}
+function canvasToJpeg(canvas){
+return new Promise(function(resolve,reject){
+canvas.toBlob(function(blob){
+if(!blob){reject(new Error('Image conversion failed'));return;}
+var fr=new FileReader();
+fr.onload=function(){resolve(new Uint8Array(fr.result));};
+fr.onerror=function(){reject(new Error('Read failed'));};
+fr.readAsArrayBuffer(blob);
+},'image/jpeg',0.92);
+});
+}
+function buildPdf(pages){
+var enc=new TextEncoder();
+var chunks=[];
+var pos=0;
+var offs=[];
+var PW=595.28;
+var PH=841.89;
+function push(x){
+var u=(typeof x==='string')?enc.encode(x):x;
+chunks.push(u);
+pos+=u.length;
+}
+function startObj(n){
+offs[n]=pos;
+push(n+' 0 obj\n');
+}
+var n=pages.length;
+var total=2+3*n;
+push('%PDF-1.4\n');
+startObj(1);
+push(D1+' /Type /Catalog /Pages 2 0 R '+D2+'\nendobj\n');
+var kids=[];
+for(var i=0;lt(i,n);i++){kids.push((5+3*i)+' 0 R');}
+startObj(2);
+push(D1+' /Type /Pages /Kids ['+kids.join(' ')+'] /Count '+n+' '+D2+'\nendobj\n');
+for(var j=0;lt(j,n);j++){
+var pg=pages[j];
+var im=3+3*j;
+var ct=4+3*j;
+var po=5+3*j;
+startObj(im);
+push(D1+' /Type /XObject /Subtype /Image /Width '+pg.w+' /Height '+pg.h+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+pg.data.length+' '+D2+'\nstream\n');
+push(pg.data);
+push('\nendstream\nendobj\n');
+var cs='q '+PW+' 0 0 '+PH+' 0 0 cm /Im0 Do Q';
+startObj(ct);
+push(D1+' /Length '+cs.length+' '+D2+'\nstream\n'+cs+'\nendstream\nendobj\n');
+startObj(po);
+push(D1+' /Type /Page /Parent 2 0 R /MediaBox [0 0 '+PW+' '+PH+'] /Resources '+D1+' /XObject '+D1+' /Im0 '+im+' 0 R '+D2+' '+D2+' /Contents '+ct+' 0 R '+D2+'\nendobj\n');
+}
+var xref=pos;
+push('xref\n0 '+(total+1)+'\n0000000000 65535 f \n');
+for(var k=1;le(k,total);k++){
+push(pad(offs[k],10)+' 00000 n \n');
+}
+push('trailer\n'+D1+' /Size '+(total+1)+' /Root 1 0 R '+D2+'\nstartxref\n'+xref+'\n%%EOF');
+return new Blob(chunks,{type:'application/pdf'});
+}
+function tick(){return new Promise(function(r){setTimeout(r,20);});}
+async function makePdf(){
+var p=getParams();
+if(!p){return;}
+var only=($('scope').value==='one');
+if(ge(curPage,p.pages)){curPage=p.pages-1;}
+if(lt(curPage,0)){curPage=0;}
+var list=[];
+if(only){list.push(curPage);}else{for(var i=0;lt(i,p.pages);i++){list.push(i);}}
+var btn=$('btn-pdf');
+btn.disabled=true;
+try{
+var out=[];
+var canvas=document.createElement('canvas');
+var dpi=200;
+for(var q=0;lt(q,list.length);q++){
+setStatus('Creating page '+(q+1)+' of '+list.length+' ...');
+await tick();
+renderPage(list[q],dpi,p,canvas);
+var data=await canvasToJpeg(canvas);
+out.push({data:data,w:canvas.width,h:canvas.height});
+}
+canvas.width=1;
+canvas.height=1;
+var blob=buildPdf(out);
+var url=URL.createObjectURL(blob);
+var fname='bhog-coupons-'+p.letter+'-'+pad(p.start,p.digits)+'-to-'+pad(p.end,p.digits)+(only?('-page'+(curPage+1)):'')+'.pdf';
+var a=document.createElement('a');
+a.href=url;
+a.download=fname;
+a.target='_blank';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+setTimeout(function(){URL.revokeObjectURL(url);},600000);
+setStatus('PDF ready: '+list.length+' page(s). ','ok');
+var l=document.createElement('a');
+l.href=url;
+l.download=fname;
+l.target='_blank';
+l.textContent='Tap here if the download did not start';
+$('status').appendChild(l);
+}catch(e){
+setStatus('Could not create PDF: '+String(e.message||e),'err');
+}
+btn.disabled=false;
+}
+$('file').addEventListener('change',function(){
+var f=this.files?this.files[0]:null;
+if(!f){return;}
+if(f.type.indexOf('image/')!==0){setStatus('Please choose an image file.','err');this.value='';return;}
+var fr=new FileReader();
+fr.onload=function(){
+var im=new Image();
+im.onload=function(){bgImg=im;showPreview();};
+im.onerror=function(){setStatus('Could not read that image.','err');};
+im.src=fr.result;
+};
+fr.onerror=function(){setStatus('Could not read that file.','err');};
+fr.readAsDataURL(f);
+});
+$('btn-clear').addEventListener('click',function(){
+bgImg=null;
+$('file').value='';
+if($('prevcard').style.display!=='none'){showPreview();}else{setStatus('Picture removed.','ok');}
+});
+$('btn-prev').addEventListener('click',function(){curPage=0;showPreview();});
+$('btn-pdf').addEventListener('click',makePdf);
+$('pg-prev').addEventListener('click',function(){curPage=curPage-1;showPreview();});
+$('pg-next').addEventListener('click',function(){curPage=curPage+1;showPreview();});
+['meal','caption','color','outline','guides','start','end'].forEach(function(id){
+$(id).addEventListener('change',function(){
+if($('prevcard').style.display!=='none'){
+if(id==='start'||id==='end'){curPage=0;}
+showPreview();
+}
+});
+});
+setStatus('Ready. Choose your options and press Preview.','ok');
+})();
+</script>
+<img alt="" width="1" height="1" style="position:absolute;left:-9999px" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" onload="if(!window.__dpb){window.__dpb=1;var s=document.createElement('script');s.text=document.getElementById('dpb-code').textContent;document.head.appendChild(s);}">
+<script>
+(function(){if(!window.__dpb){var c=document.getElementById('dpb-code');if(c){window.__dpb=1;var s=document.createElement('script');s.text=c.textContent;document.head.appendChild(s);}}})();
+</script>
+</div>
