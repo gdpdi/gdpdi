@@ -1,0 +1,105 @@
+<div id="dpb-app">
+<style>
+#dpb-app{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:0 auto;padding:10px;color:#222;box-sizing:border-box}
+#dpb-app *{box-sizing:border-box}
+#dpb-app h2{margin:0 0 10px;font-size:20px;color:#b3261e;text-align:center}
+#dpb-app .dpb-card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:12px;margin-bottom:12px}
+#dpb-app .dpb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#dpb-app .dpb-full{grid-column:1/-1}
+#dpb-app label{display:block;font-size:13px;font-weight:bold;color:#444}
+#dpb-app input[type=number],#dpb-app input[type=text],#dpb-app select,#dpb-app input[type=file]{width:100%;margin-top:4px;padding:9px;font-size:16px;border:1px solid #bbb;border-radius:6px;background:#fff}
+#dpb-app input[type=color]{width:100%;height:42px;margin-top:4px;border:1px solid #bbb;border-radius:6px;padding:2px;background:#fff}
+#dpb-app .dpb-check{display:flex;align-items:center;gap:8px;font-weight:normal;font-size:14px}
+#dpb-app .dpb-check input{width:20px;height:20px;margin:0}
+#dpb-app .dpb-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#dpb-app button{flex:1 1 140px;padding:12px;font-size:16px;font-weight:bold;border:0;border-radius:8px;cursor:pointer;color:#fff;background:#b3261e}
+#dpb-app button.dpb-alt{background:#2b6cb0}
+#dpb-app button.dpb-gray{background:#666}
+#dpb-app button:disabled{opacity:.5;cursor:not-allowed}
+#dpb-app .dpb-status{margin-top:10px;font-size:14px;min-height:20px}
+#dpb-app .dpb-err{color:#c00}
+#dpb-app .dpb-ok{color:#187a2e}
+#dpb-app .dpb-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+#dpb-app .dpb-nav button{flex:0 0 auto;padding:8px 14px}
+#dpb-app .dpb-prev{width:100%;overflow:hidden;background:#eee;border:1px solid #ccc;border-radius:6px;padding:6px}
+#dpb-app canvas{display:block;width:100%;height:auto;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.25)}
+@media (max-width:480px){#dpb-app .dpb-grid{grid-template-columns:1fr}}
+</style>
+<div class="dpb-card">
+<h2>Durga Puja Bhog Coupon Generator</h2>
+<div class="dpb-grid">
+<label>Meal
+<select id="dpb-meal">
+<option value="Breakfast">Breakfast</option>
+<option value="Lunch" selected>Lunch</option>
+<option value="Snacks">Snacks</option>
+<option value="Dinner">Dinner</option>
+</select>
+</label>
+<label>Caption (optional, small text on top)
+<input type="text" id="dpb-caption" value="Durga Puja Bhog" maxlength="30">
+</label>
+<label>Start serial
+<input type="number" id="dpb-start" value="1" min="1" step="1" inputmode="numeric">
+</label>
+<label>End serial
+<input type="number" id="dpb-end" value="70" min="1" step="1" inputmode="numeric">
+</label>
+<label>Text colour
+<input type="color" id="dpb-color" value="#b3261e">
+</label>
+<label>Background picture
+<input type="file" id="dpb-file" accept="image/*">
+</label>
+<label class="dpb-check dpb-full"><input type="checkbox" id="dpb-outline" checked> White outline on text (easier to read on pictures)</label>
+<label class="dpb-check dpb-full"><input type="checkbox" id="dpb-guides" checked> Show thin cut lines around each coupon</label>
+<label class="dpb-full">PDF pages
+<select id="dpb-scope">
+<option value="all">All pages (35 coupons per page)</option>
+<option value="one">Only the page shown in preview</option>
+</select>
+</label>
+</div>
+<div class="dpb-btns">
+<button id="dpb-btn-prev" class="dpb-alt" type="button">Preview</button>
+<button id="dpb-btn-pdf" type="button">Create PDF</button>
+<button id="dpb-btn-clear" class="dpb-gray" type="button">Remove picture</button>
+</div>
+<div class="dpb-status" id="dpb-status">Loading...</div>
+</div>
+<div class="dpb-card" id="dpb-prevcard" style="display:none">
+<div class="dpb-nav">
+<button id="dpb-pg-prev" class="dpb-gray" type="button">Prev</button>
+<span id="dpb-pginfo">Page 1 of 1</span>
+<button id="dpb-pg-next" class="dpb-gray" type="button">Next</button>
+</div>
+<div class="dpb-prev"><canvas id="dpb-canvas"></canvas></div>
+</div>
+<script>
+(function(){
+var PAGE_W=8.27,PAGE_H=11.69,CS=1.5,COLS=5,ROWS=7,PER=35,MAXC=20000;
+var D1='\x3C\x3C',D2='\x3E\x3E';
+var bgImg=null,curPage=0;
+function $(id){return document.getElementById('dpb-'+id);}
+function lt(a,b){return a!==b?Math.min(a,b)===a:false;}
+function gt(a,b){return lt(b,a);}
+function le(a,b){return !gt(a,b);}
+function ge(a,b){return !lt(a,b);}
+function setStatus(msg,type){
+var s=$('status');
+s.textContent=msg||'';
+s.className='dpb-status'+(type==='err'?' dpb-err':(type==='ok'?' dpb-ok':''));
+}
+function pad(n,d){
+var s=String(n);
+var z=Math.max(0,d-s.length);
+return new Array(z+1).join('0')+s;
+}
+function getParams(){
+var start=parseInt($('start').value,10);
+var end=parseInt($('end').value,10);
+if(isNaN(start)||isNaN(end)){setStatus('Please enter valid start and end serial numbers.','err');return null;}
+if(lt(start,1)){setStatus('Start serial must be 1 or more.','err');return null;}
+if(lt(end,start)){setStatus('End serial must be greater than or equal to start serial.','err');return null;}
+var total=end-start+1;
+if(gt(tota
