@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🙏 Global Durga Puja Digital Index
+# Global Durga Puja Digital Index
 
 **GDPDI &nbsp;·&nbsp; March 2026 &nbsp;·&nbsp; Edition 4**
 
